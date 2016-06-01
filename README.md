@@ -164,6 +164,39 @@ script.PushFastReflectClass(typeof(UnityEngine.GameObject), new ScorpioClass_Uni
 ```
  
 ## master版本更新和修改内容 ##
+(2016-6-1)
+-----------
+* 去反射类过滤不生成的函数改为 实现一个继承自 Scorpio.ScorpioReflect.ClassFilter 的类, 然后调用 GenerateScorpioClass 的 SetClassFilter 设置
+* 去反射生成的变量,属性,事件,函数加入名字排序,不会导致每次生成有可能导致文件发生改变,也方便查找
+
+(2016-5-31)
+-----------
+* 提升脚本执行性能 5% - 10%
+
+(2016-5-31)
+-----------
+* 类型null支持当作table的key值
+* 类型bool可以直接传入类型当作table的key值,修改前只可以传入变量
+```javascript
+var a = {
+    true = 100,
+    null = 100,
+}
+print(a[true])
+print(a[null])
+a[true] = 200
+a[null] = 200
+print(a[true])
+print(a[null])
+```
+
+(2016-5-20)
+-----------
+* 增加func库(只对脚本函数有效)
+	* func.count() 返回函数参数个数
+	* func.isparams() 返回函数是否是不定参函数
+	* func.isstatic() 返回函数是否是静态函数(不是table内部函数)
+	* func.getparams() 返回函数参数名字数组
 (2016-4-20)
 -----------
 * 优化去反射工具生成代码
