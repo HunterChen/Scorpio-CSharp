@@ -173,6 +173,7 @@ script.PushFastReflectClass(typeof(UnityEngine.GameObject), new ScorpioClass_Uni
 -----------
 * 提升脚本执行性能 5% - 10%
 
+
 (2016-5-31)
 -----------
 * 类型null支持当作table的key值
